@@ -17,9 +17,35 @@
         <div id="target-div">
         </div>
 
+        <div id="groupbuy-debug">
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="../bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
         <script src="../bower_components/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/groupbuy.js"></script>
+        <script>
+            $('#target-div').groupbuy([
+                    {
+                        quantity : 100,
+                        price : 99.99,
+                        joined : 90,
+                        commited : 20
+                    },
+                    {
+                        quantity : 200,
+                        price : 79.99,
+                        joined : 50,
+                        commited : 10
+                    },
+                    {
+                        quantity : 400,
+                        price : 59.99,
+                        joined : 20,
+                        commited : 10
+                    }
+                ]
+            );
+        </script>
     </body>
 </html>
