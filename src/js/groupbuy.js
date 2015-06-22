@@ -1,16 +1,18 @@
 "use-strict";
 // Turn the array of tier data into object with all the information.
 function MakeGroupBuyData( tierArray ){
+    // Default data.
     var data = {
         tiers : tierArray,
         totalJoined : 0,
         totalCommited: 0,
-        currentPrice : 0,
         currentTier : 0,
         neededForNextPrice : 0,
         neededForLowestPrice : 0
     };
-    // Find the current tier.
+    // Loop all the tiers,
+    //     * if the joined and commited make the total
+    //     * all overflow become joined in the next tier
     var extras = 0;
     for (i = 0; i < tierArray.length; i++) {
         var tier = tierArray[i];
@@ -27,8 +29,6 @@ function MakeGroupBuyData( tierArray ){
         data.totalJoined += tier.joined;
         data.totalCommited += tier.commited;
     }
-    // Set the current price.
-    data.currentPrice = data.currentTier.price;
     return data;
 }
 
